@@ -24,6 +24,14 @@ func NewGetOrderLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GetOrder
 }
 
 func (l *GetOrderLogic) GetOrder(req *types.OrderReq) (resp *types.OrderReply, err error) {
+	v, ok := l.ctx.Value("exp").(int64)
+	if ok {
+		l.Infof("exp: %d", v)
+	}
+
+	l.Infof("iat: %s", l.ctx.Value("iat"))
+	l.Infof("userId: %s", l.ctx.Value("userId"))
+
 	user, err := l.svcCtx.UserRpc.GetUser(l.ctx, &user.IdRequest{
 		Id: req.Id,
 	})

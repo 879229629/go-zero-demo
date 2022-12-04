@@ -28,7 +28,12 @@ type (
 service order {
 	@handler login
 	post /user/login (LoginReq) returns (LoginReply)
-	
+}
+
+@server(
+	jwt: Auth
+)
+service order {
 	@handler getOrder
 	get /api/order/get/:id (OrderReq) returns (OrderReply)
 }

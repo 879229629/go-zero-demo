@@ -8,4 +8,4 @@ UserRpc:
     Key: user.rpc
 Auth:
   AccessSecret: dfweweqede
-  AccessExpire: 300
+  AccessExpire: 86400

@@ -1,1 +1,1 @@
-// goctl api go -api user.api -dir .
+// goctl api go -api order.api -dir .
