@@ -2,8 +2,9 @@
 package handler
 
 import (
-	"go-zero-demo/mall/order/api/internal/svc"
 	"net/http"
+
+	"go-zero-demo/mall/order/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )
@@ -11,6 +12,11 @@ import (
 func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 	server.AddRoutes(
 		[]rest.Route{
+			{
+				Method:  http.MethodPost,
+				Path:    "/user/login",
+				Handler: loginHandler(serverCtx),
+			},
 			{
 				Method:  http.MethodGet,
 				Path:    "/api/order/get/:id",
